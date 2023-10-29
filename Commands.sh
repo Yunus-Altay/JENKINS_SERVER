@@ -21,7 +21,7 @@ terraform apply -auto-approve
 
 # Change some of the values in the main.tf, which is stated in the file
 # Change the AWS acc IDs in the playbook
-# You may change the container name, it has no effect 
+# You may change the container names, it has no effect 
 # Change the key-pair name in the jenkins file
 
 # Add a webhook to the pipeline GitHub repo

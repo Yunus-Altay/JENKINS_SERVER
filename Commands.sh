@@ -38,3 +38,4 @@ terraform apply -auto-approve
 
 # http://<react-server-publicIP>:80/
 # To destroy the build, give approval in the stage view
+# Remember, jenkins server is still running

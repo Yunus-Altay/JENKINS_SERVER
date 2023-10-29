@@ -36,5 +36,5 @@ terraform apply -auto-approve
 # Change the branches to build if needed
 # Build now!!
 
-# http://<react-server-publicIP>:3000/
+# http://<react-server-publicIP>:80/
 # To destroy the build, give approval in the stage view

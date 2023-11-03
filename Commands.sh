@@ -10,11 +10,14 @@ terraform apply -auto-approve
 # Install the 'Ansible' and 'Terraform' plugins
 # Install ansible and terraform as a tool in the jenkins server
 # Run the command 'which ansible' and 'which terraform' in the jenkins server;
-# to find out the path to ansible/terraform executables directory
+## to find out the path to ansible/terraform executables directory
+# Uncheck 'Install automatically' in the Terraform section
 
 # Add your private key-pair and GitHub token as credentials in jenkins server
-# GitHub token; username,token-name | password-token | description, github (optional)
-# Private key-pair; ID, private-key-pair (without pem) | description, ansible (optional) | username, target-host-user (ec2-user) | private-key, private-key (trimmed)
+# GitHub token (Username with password); username,token-name | password-token;
+## description, github (optional)
+# Private key-pair (SSH Username with private key); ID, private-key-pair (without pem);
+## description, ansible (optional) | username, target-host-user (ec2-user) | private-key, private-key (trimmed)
 
 # Create parameters for some env variables to hide and store their values in the parameter store of AWS Systems Manager
 # db_name and db_password

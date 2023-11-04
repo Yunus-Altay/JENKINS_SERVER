@@ -26,7 +26,15 @@ resource "aws_iam_role" "aws_access" {
       },
     ]
   })
-  managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess", "arn:aws:iam::aws:policy/AmazonEC2FullAccess", "arn:aws:iam::aws:policy/IAMFullAccess", "arn:aws:iam::aws:policy/AmazonS3FullAccess", "arn:aws:iam::aws:policy/AmazonSSMFullAccess", "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"]
+  managed_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess",
+    "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+    "arn:aws:iam::aws:policy/IAMFullAccess",
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+    "arn:aws:iam::aws:policy/AmazonSSMFullAccess",
+    "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
+    "arn:aws:iam::aws:policy/AmazonRoute53FullAccess"
+  ]
 
 }
 
@@ -36,30 +44,30 @@ resource "aws_iam_instance_profile" "ec2-profile" {
 }
 
 data "aws_ami" "al2023" {
-  most_recent      = true
-  owners           = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
 
   filter {
-    name = "virtualization-type"
+    name   = "virtualization-type"
     values = ["hvm"]
   }
 
   filter {
-    name = "architecture"
+    name   = "architecture"
     values = ["x86_64"]
   }
   filter {
-    name = "name"
+    name   = "name"
     values = ["al2023-ami-2023*"]
   }
 }
 
 resource "aws_instance" "tf-jenkins-server" {
-  ami = data.aws_ami.al2023.id
-  instance_type = var.instancetype
-  key_name      = var.mykey
+  ami                    = data.aws_ami.al2023.id
+  instance_type          = var.instancetype
+  key_name               = var.mykey
   vpc_security_group_ids = [aws_security_group.tf-jenkins-sec-gr.id]
-  iam_instance_profile = aws_iam_instance_profile.ec2-profile.name
+  iam_instance_profile   = aws_iam_instance_profile.ec2-profile.name
   tags = {
     Name = var.tag
   }

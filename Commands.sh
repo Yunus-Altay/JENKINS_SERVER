@@ -13,13 +13,15 @@ terraform apply -auto-approve
 ## to find out the path to ansible/terraform executables directory
 # Uncheck 'Install automatically' in the Terraform section
 
-# Add your private key-pair, GitHub token  and Ansible-vault password as credentials in jenkins server
+# Add your private key-pair, GitHub token, Ansible-vault password and Slack token as credentials in jenkins server
 # GitHub token (Username with password); username,token-name | password-token;
 ## description, github (optional)
 # Private key-pair (SSH Username with private key); ID, private-key-pair (without pem);
 ## description, ansible (optional) | username, target-host-user (ec2-user) | private-key, private-key (trimmed)
 # Ansible-vault password (Secret text); secret, password to the ansible-vault file | ID, AnsibleVaultPassword (optional);
 ## description, AnsibleVaultPassword (optional)
+# Slack token (Secret text); secret, token | ID, slack-token (optional) | description, slack-token (optional)
+# Configure Slack in the global system settings; workspace (devops14tr) & credentials (slack-token)
 
 # Create parameters for some env variables to hide and store their values in the parameter store of AWS Systems Manager
 # db_name and db_password

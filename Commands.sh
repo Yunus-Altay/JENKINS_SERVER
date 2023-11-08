@@ -32,7 +32,7 @@ terraform apply -auto-approve
 # Change the key-pair name in the jenkins file
 
 # Add a webhook to the pipeline GitHub repo
-# http://<jenkins-server-publicIP:8080/github-webhook/
+# http://<jenkins-server-publicIP>:8080/github-webhook/
 
 # Give a name to the pipeline to be created
 # Add a description
